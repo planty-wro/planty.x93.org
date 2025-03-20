@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Zmiana zarządcy wspólnoty Planty IV</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #39e04C;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        header {
+            background: #0e2e10;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .counter-section {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        .counter-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .counter-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        .progress-ring {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            stroke: white;
+            stroke-width: 15;
+            fill: transparent;
+        }
+        
+        .progress-ring-background {
+            stroke: rgba(255, 255, 255, 0.2);
+            stroke-width: 15;
+            fill: transparent;
+        }
+        
+        .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            font-weight: bold;
+        }
+        
+        .progress-details {
+            font-size: 0.85rem;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        .progress-details p {
+            margin: 3px 0;
+        }
+        
+        .info-section {
+            padding: 30px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        .info-card p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+        }
+        
+        .mobywatel-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .mobywatel-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #555;
+        }
+        
+        .loading {
+            font-style: italic;
+            opacity: 0.7;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-bg);
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 0px; }
+            .counter-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .container { border-radius: 0px; }
+            
+            .percentage {
+                font-size: 3rem;
+            }
+            
+            .info-card {
+                padding: 15px;
+            }
+        }
+
+        ul {
+          margin-left: 2em;
+        }
+
+        ul>li { margin-bottom: 0.5em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zmieniamy zarządce nieruchomości</h1>
+            <p>We wspólnocie Planty Racławickie IV</p>
+        </header>
+        
+        <section class="counter-section">
+            <h2 class="counter-title">Aktualny postęp zbierania upoważnień</h2>
+            <div class="counter-container">
+                <svg class="progress-ring" width="100%" height="100%" viewBox="0 0 120 120">
+                    <circle class="progress-ring-background" cx="60" cy="60" r="50"></circle>
+                    <circle class="progress-ring-circle" cx="60" cy="60" r="50"
+                    stroke-dasharray="314.16" stroke-dashoffset="313"></circle>
+                </svg>
+                <div class="percentage" id="percentage-display">...</div>
+            </div>
+            <p id="progress-text">Trwa ładowanie danych...</p>
+            
+            <div class="progress-details" id="progress-details">
+                <p class="loading">Pobieranie szczegółów...</p>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <div class="info-card">
+                <h2>Dlaczego zmieniamy zarządcę</h2>
+                <ul>
+                  <li>AMD jest zarządcą wyznaczonym przez Archicom. Zmieniając zarządce, możemy wybrać takiego, który nie ma żadnych
+                    powiązań z developerem.</li>
+                  <li>Argumenty za zmianą można zobaczyć w zgłoszeniach w IOK. Wiele ze
+                    zgłoszonych tematów ruszone były dopiero po interwencjach
+                    mieszkańców u developera (np. szlaban, pół roku AMD się z tym
+                    borykał), wiele tematów nie jest
+                    zaadresowanych mimo upływania kolejnych terminów wyznaczanych przez
+                    AMD (np. organizacja ruchu, pół roku, końca nie widać).</li>
+                  <li>"<i><u>Rzadko zdarza się taki brak działań zarządcy. Gdyby zarządca
+                        zadziałał 4 lata temu, to dziś byśmy się nie spotkali</u> – dodaje
+                      ekspert budowlany.</i>" - <a
+                                                    href="https://uwaga.tvn.pl/reportaze/na-jednym-z-nowych-osiedli-we-wroclawiu-woda-zalewa-mieszkania-czy-uda-sie-skutecznie-pomoc-st8370201?utm_source=planty.x93.org">reportaż
+                                                    TVN24 na temat działań AMD i
+                                                    Archicom</a>.
+                  <li>Podobną zmianę przeprowadził już etap I i osiedle Develii. Wg
+                    opinii mieszkańców i członków zarządów:
+                    "<i>Czynsz podobny. Jakość o wiele lepsza.</i>", "<i>Pozbycie się AMD
+                      to była najlepsza decyzja.</i>".</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h2>Jak wprowadzamy zmianę?</h2>
+                <p>Zbieramy upoważnienia do przeprowadzenia zmiany zarządcy.
+                Potrzebujemy takich upoważnień od 50%+1 właścicieli mieszkań. Po
+                zebraniu tej liczby zwołujemy zebranie i dokonujemy zmiany zarządcy.</p>
+
+                <p>Zarządce zmieniamy na Prime Project - tą samą firmę która opiekuje
+                się już pierwszym etapem Plant Racławickich i osiedlem tuż obok.</p>
+
+            </div>
+            <div class="info-card">
+                <h2>Jak podpisać upoważnienie?</h2>
+
+                <p>Upoważnienie możesz:</p>
+                <ul>
+                  <li><a href='upowaznienie-1os.pdf'>Pobrać, wydrukować, podpisać</a> i wrzucić do skrzynki pocztowej Wichrowa 4a/43
+                    (oznaczona <b>tu zmiana zarządcy</b>). </li>
+                  <li>Spotkać się z nami w klubie mieszkańca, porozmawiać na miejscu o
+                    zmianie i podpisać wersję papierową. Jesteśmy na miejscu w każdy
+                    wtorek o 8:00 rano, czwartek o 16:00 i sobotę o 10:00. </li>
+                  <li>Jeśli nie możesz podpisać fizycznie, odezwij się na <a
+                    href='https://www.facebook.com/groups/508968588174664'>naszej grupie</a>,
+                    zorganizujemy podpis zdalnie.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Inicjatywa mieszkańców na rzecz poprawy zarządzania wspólnotą | Kontakt: planty@x93.org</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const circle = document.querySelector('.progress-ring-circle');
+            const percentageDisplay = document.getElementById('percentage-display');
+            const progressText = document.getElementById('progress-text');
+            const progressDetails = document.getElementById('progress-details');
+            const radius = circle.getAttribute('r');
+            const circumference = 2 * Math.PI * radius;
+            
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            
+            // Fetch data from Google Scripts
+            fetch('https://script.google.com/macros/s/AKfycbz4wH_04WFi_GRhIH0WMMWQ4OsM2NeH0lNzzNBxHhfCXuN9JBRGaPgeyW1NyOZawzP8fA/exec', {
+                redirect: 'follow'
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                
+                // Display the percentage
+                const progressPercentage = (data.zbieranie_postep * 100).toFixed(1);
+                const zebraneProcentWartosc = (data.zebranych_procent * 100).toFixed(1);
+                
+                // Update the circle progress
+                const offset = circumference - (progressPercentage / 100 * circumference);
+                circle.style.strokeDashoffset = offset;
+                
+                // Update the percentage text
+                percentageDisplay.textContent = `${progressPercentage}%`;
+                progressText.textContent = `Zebraliśmy już ${progressPercentage}% głosów potrzebnych do zmiany zarządcy`;
+                
+                // Update details section
+                progressDetails.innerHTML = `
+                    <p>Wszystkich udziałów: ${data.wszystkich_udzialow.toLocaleString()}</p>
+                    <p>Wymagane do przegłosowania: ${data.wymagane_do_przeglosowania.toLocaleString()}</p>
+                    <p>Zebranych udziałów: ${data.zebranych_udzialow.toLocaleString()}</p>
+                    <p>Zebrany procent całości: ${zebraneProcentWartosc}%</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                percentageDisplay.textContent = 'Błąd';
+                progressText.textContent = 'Nie udało się załadować danych';
+                progressDetails.innerHTML = '<p>Wystąpił błąd podczas pobierania danych. Spróbuj odświeżyć stronę.</p>';
+            });
+        });
+    </script>
+</body>
+</html>
