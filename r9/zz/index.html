@@ -208,6 +208,9 @@
         img { width: 100%: height: auto; }
 
         ul>li img { max-width: 70%; }
+
+        div.addeventatc { background-color: #99e89d; }
+          div.addeventatc:HOVER { background-color: #89d88d;  }
     </style>
 </head>
 <body>
@@ -282,11 +285,38 @@
                 <p>Upoważnienie możesz:</p>
                 <ul>
                   <li><p>Podpisać w klubie mieszkańca. Spotkasz kogoś z czystymi
-                    upoważnieniami w
-                    każdą <b>sobotę o godzinie 10:00</b>. Na miejscu będziesz mógł/mogła
-                    porozmawiać o zmianie. Nie odpowiada Ci godzina? <a href='https://www.facebook.com/groups/planty4/
-                    '>Napisz</a> kiedy masz czas.</p>
+                    upoważnieniami we <b>wtorek 25 marca o godzinie 17:30</b>. Na miejscu będziesz mógł/mogła
+                    porozmawiać o zmianie i złożyć podpis.</p>
+
+                    <!-- Przycisk "Dodaj do kalendarza" -->
+  <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+<script type="text/javascript">
+window.addeventasync = function(){
+    addeventatc.settings({
+        appleical  : {show:true, text:"Apple Calendar"},
+        google     : {show:true, text:"Google <em>(online)</em>"},
+        office365  : {show:true, text:"Office 365 <em>(online)</em>"},
+        outlook    : {show:true, text:"Outlook"},
+        outlookcom : {show:true, text:"Outlook.com <em>(online)</em>"},
+        yahoo      : {show:false, text:"Yahoo <em>(online)</em>"}
+    });
+};
+</script  >
+  <div title="Dodaj do kalendarza" class="addeventatc" style="margin-top: 10px;">
+    Dodaj do kalendarza, otrzymaj przypomnienie
+    <span class="start">2025-03-25 17:30</span>
+    <span class="end">2025-03-25 18:30</span>
+    <span class="timezone">Europe/Warsaw</span>
+    <span class="title">Zmiana zarządcy Planty IV</span>
+    <span class="description">Zmieniamy zarządce nieruchomości Planty Racławickie IV. Przyjdź
+      porozmawiać o zmianie i dlaczego ją podejmujemy, a jeśli jesteś
+      zdecydowany/zdecydowana - podpisz upoważnienie.</span>
+    <span class="location">Wichrowa 2a, 53-027 Wrocław, Poland</span>
+    <span class="alarm_reminder">5</span>
+  </div><br /><br />
+
                   </li>
+
 
                   <li><p>Możesz też <a href='upowaznienie-3os.pdf'>pobrać, wydrukować, podpisać</a> i wrzucić do skrzynki pocztowej Wichrowa 4a/43
                     (oznaczona <b>tu zmiana zarządcy</b>). </p>
@@ -296,6 +326,7 @@
                     href='https://www.facebook.com/groups/508968588174664'>naszej grupie</a>,
                   zorganizujemy podpis zdalnie.</p></li>
                 </ul>
+
             </div>
         </section>
 
